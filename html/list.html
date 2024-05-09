@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>List RPS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b91f07c834.js" crossorigin="anonymous"></script>
+    <style>
+        .nabil-bg {
+            background-color: #3468C0;
+        }
+        .photo {
+            background-image: url();
+            height: 100px; 
+            width: 100px; 
+            border-radius: 50%;
+        }
+        .nabil-btn {
+            background-color: #215dc4;
+            transition: .3s;
+        }
+        .nabil-btn:hover {
+            background-color: #1756c2;
+            letter-spacing: 1.5px;
+        }
+
+        .nabil2-btn {
+            color: #000;
+            border: 2px solid #9cb7e5;
+            background-color: transparent;
+            transition: .3s;
+        }
+        .nabil2-btn:hover {
+            background-color: #9cb7e5;
+        }
+    </style>
+</head>
+  <body>
+    <div class="container-fluid">
+        <div class="row" style="height: 100vh;">
+            <div class="col-2 nabil-bg p-4 text-white position-fixed bottom-0 top-0">
+                <div class="profile text-center mb-4">
+                    <div class="photo bg-dark mx-auto mt-3 mb-2"></div>
+                    <p class="mb-0">Muhammad Nabil Amani</p>
+                    <p class="small fst-italic">1234512345</p>
+                    <a href="<?= base_url('') ?>" class="btn btn-sm nabil-btn text-white align-self-end">
+                        <i class="fa-solid fa-sign-out" style="color: #ffffff;"></i> Logout
+                    </a>
+                </div>
+
+                <div class="menu">
+                    <hr class="mb-1">
+                    <a href="<?= base_url('') ?>" class="btn text-white">
+                        <i class="fa-solid fa-gauge fa-fw me-2" style="color: #ffffff;"></i> Dashboard
+                    </a>
+                    <hr class="mb-1">
+                    <a href="<?= base_url('') ?>" class="btn" style="color: rgb(204, 205, 222)">
+                        <i class="fa-solid fa-clipboard-list fa-fw me-2"></i> List RPS
+                    </a>
+                    <hr class="mb-1">
+                    <a href="<?= base_url('t') ?>" class="btn text-white">
+                        <i class="fa-solid fa-square-plus fa-fw me-2" style="color: #ffffff;"></i> Create RPS
+                    </a>
+                </div>
+            </div>
+            <div class="col-10 p-4" style="margin-left: calc(16.66666667%);">
+                <h3 class="text-center mb-3"><i class="fa-solid fa-clipboard-list fa-fw me-2"></i> List RPS</h3>
+                <div style="width: 100%; height: 2px; background-color: #3468C0; margin: 30px auto 10px;" ></div>
+                <div class="input-group mb-3 d-flex justify-content-end">
+                    <input type="text" class="form-control-sm" placeholder="Cari RPS" style="border: 1px solid green;">
+                    <button class="btn btn-success" type="button" id="button-addon2">Cari</button>
+                </div>
+
+                <a href="" class="btn nabil2-btn mb-3" style="width: 100%;">
+                    <table class="table-borderless bg-transparent w-100 text-start">
+                        <tr>
+                            <td class="fs-4 fst-italic" colspan="4">Perancangan Web 2</td>
+                            <td class="text-center" style="width: 10%; letter-spacing: 5px;" rowspan="2">
+                                <a href="p"><i class="fa-solid fa-pen" style="color: #000;"></i></a>
+                                <a href="e"><i class="fa-solid fa-eye" style="color: #000;"></i></a>
+                                <a href="e"><i class="fa-solid fa-trash" style="color: #000;"></i></a>
+                            </td>
+                        </tr>
+                        <tr class="fst-italic">
+                            <td style="width: 10%;"><small>2 Teori</small></td>
+                            <td style="width: 10%;"><small>Semester 2</small></td>
+                            <td style="width: 15%;"><small>D3 Teknik Informatika</small></td>
+                            <td><small>Nabil Amani, M.Kom</small></td>
+                        </tr>
+                    </table>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>

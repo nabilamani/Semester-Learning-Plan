@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add Data RPS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b91f07c834.js" crossorigin="anonymous"></script>
+    <style>
+        .nabil-bg {
+            background-color: #3468C0;
+        }
+        .photo {
+            background-image: url();
+            height: 100px; 
+            width: 100px; 
+            border-radius: 50%;
+        }
+        .nabil-btn {
+            background-color: #215dc4;
+            transition: .3s;
+        }
+        .nabil-btn:hover {
+            background-color: #1756c2;
+            letter-spacing: 1.5px;
+        }
+
+        .nabil2-btn {
+            color: #000;
+            border: 2px solid #9cb7e5;
+            background-color: transparent;
+            transition: .3s;
+        }
+        .nabil2-btn:hover {
+            background-color: #9cb7e5;
+        }
+
+        table {
+            font-size: .8rem;
+        }
+
+        textarea, input, select {
+            border-radius: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+  <body>
+    <div class="container-fluid">
+        <div class="row" style="height: 100vh;">
+            <div class="col-2 nabil-bg p-4 text-white position-fixed bottom-0 top-0">
+                <div class="profile text-center mb-4">
+                    <div class="photo bg-dark mx-auto mt-3 mb-2"></div>
+                    <p class="mb-0">Muhammad Nabil Amani</p>
+                    <p class="small fst-italic">1234512345</p>
+                    <a href="<?= base_url('') ?>" class="btn btn-sm nabil-btn text-white align-self-end">
+                        <i class="fa-solid fa-sign-out" style="color: #ffffff;"></i> Logout
+                    </a>
+                </div>
+
+                <div class="menu">
+                    <hr class="mb-1">
+                    <a href="<?= base_url('') ?>" class="btn text-white">
+                        <i class="fa-solid fa-gauge fa-fw me-2" style="color: #ffffff;"></i> Dashboard
+                    </a>
+                    <hr class="mb-1">
+                    <a href="<?= base_url('') ?>" class="btn text-white">
+                        <i class="fa-solid fa-clipboard-list fa-fw me-2" style="color: #ffffff;"></i> List RPS
+                    </a>
+                    <hr class="mb-1">
+                    <a href="<?= base_url('t') ?>" class="btn text-white">
+                        <i class="fa-solid fa-square-plus fa-fw me-2" style="color: #ffffff;"></i> Create RPS
+                    </a>
+                </div>
+            </div>
+            <div class="col-10 p-4" style="margin-left: calc(16.66666667%);">
+                <h3 class="text-center"><i class="fa-solid fa-calendar-plus fa-fw me-2"></i> Add Data RPS</h3>
+                <h5 class="text-center fst-italic">Perancangan Web 1</h5>
+                <div class="text-center">
+                    <a href="p" class="btn btn-sm nabil-btn text-white" style="font-size: 10px;"><i class="fa-solid fa-eye" style="color: #fff;"></i> View</a>
+                    <a href="p" class="btn btn-sm nabil-btn text-white" style="font-size: 10px;"><i class="fa-solid fa-pen" style="color: #fff;"></i> Edit RPS</a>
+                    <a href="e" class="btn btn-sm nabil-btn text-white" style="font-size: 10px;"><i class="fa-solid fa-trash" style="color: #fff;"></i> Delete</a>
+                </div>
+                <div style="width: 100%; height: 2px; background-color: #3468C0; margin: 30px auto 10px;" ></div>
+                
+                <div class="wrapper-data">
+
+                    <!-- Gambaran Umum -->
+                    <div class="row">
+                        <div class="col-11">
+                            <h6>Gambaran Umum</h6>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#gambaranAdd" name="addGambaran" class="btn btn-sm btn-success text-white me-3" style="font-size: 12px; padding: 3px 10px;"><i class="fa-solid fa-plus" style="color: #fff;"></i> Add</button>
+                        </div>
+                    </div>
+                    <div class=" px-3 mt-2">
+                        <div class="row align-items-center mb-2 border border-black rounded-3">
+                            <div class="col-10">
+                                <p class="mb-0">lorem20 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae consequatur, non beatae laudantium fugit pariatur alias fugiat adipisci delectus, in deleniti doloremque minima mollitia sequi, neque ducimus illo quasi voluptatibus.</p>
+                            </div>
+                            <div class="col d-flex gap-1 justify-content-end">
+                                <a href="p" data-bs-toggle="modal" data-bs-target="#gambaranEdit" class="btn btn-sm nabil-btn text-white" style="font-size: 12px;"><i class="fa-solid fa-pen" style="color: #fff;"></i> Edit</a>
+                                <a href="e" class="btn btn-sm nabil-btn text-white" style="font-size: 12px;"><i class="fa-solid fa-trash" style="color: #fff;"></i> Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade modal-lg" id="gambaranEdit" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <form action="" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="d-grid mb-3"">
+                                    <input type="text" name="id" hidden value="<?= $gu['id'] ?>">
+                                    <input type="text" name="idi" hidden value="<?= $preview['idi'] ?>">
+                                    <label for="content_gambaran">Edit Gambaran Umum</label>
+                                    <textarea name="content_gambaran" id="content_gambaran" rows="2"><?= $gu['content_gambaran'] ?>
+                                    </textarea>
+                                </div>  
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" name="editGambaran" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                        </form>
+                        </div>
+                    </div>
+                    <div class="modal fade modal-lg" id="gambaranAdd" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <form action="" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="d-grid mb-3"">
+                                    <input type="text" name="id" hidden value="<?= $gu['id'] ?>">
+                                    <input type="text" name="idi" hidden value="<?= $preview['idi'] ?>">
+                                    <label for="content_gambaran">Add Gambaran Umum</label>
+                                    <textarea name="content_gambaran" id="content_gambaran" rows="2"><?= $gu['content_gambaran'] ?>
+                                    </textarea>
+                                </div>  
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" name="addGambaran" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                        </form>
+                        </div>
+                    </div>
+
+                    <!-- Capaian Pembelajaran -->
+                    <div class="row mt-4">
+                        <div class="col-11">
+                            <h6>Capaian Pembelajaran</h6>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#capaianAdd" name="addGambaran" class="btn btn-sm btn-success text-white me-3" style="font-size: 12px; padding: 3px 10px;"><i class="fa-solid fa-plus" style="color: #fff;"></i> Add</button>
+                        </div>
+                    </div>
+                    <div class=" px-3 mt-2">
+                        <div class="row align-items-center mb-2 border border-black rounded-3">
+                            <div class="col-10">
+                                <p class="mb-0">lorem20 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae consequatur, non beatae laudantium fugit pariatur alias fugiat adipisci delectus, in deleniti doloremque minima mollitia sequi, neque ducimus illo quasi voluptatibus.</p>
+                            </div>
+                            <div class="col d-flex gap-1 justify-content-end">
+                                <a href="p" data-bs-toggle="modal" data-bs-target="#capaianEdit" class="btn btn-sm nabil-btn text-white" style="font-size: 12px;"><i class="fa-solid fa-pen" style="color: #fff;"></i> Edit</a>
+                                <a href="e" class="btn btn-sm nabil-btn text-white" style="font-size: 12px;"><i class="fa-solid fa-trash" style="color: #fff;"></i> Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade modal-lg" id="capaianEdit" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <form action="" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="d-grid mb-3"">
+                                    <input type="text" name="id" hidden value="<?= $gu['id'] ?>">
+                                    <input type="text" name="idi" hidden value="<?= $preview['idi'] ?>">
+                                    <label for="content_capaian">Edit Capaian Pembelajaran</label>
+                                    <textarea name="content_capaian" id="content_capaian" rows="2"><?= $gu['content_gambaran'] ?>
+                                    </textarea>
+                                </div>  
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" name="editCapaian" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                        </form>
+                        </div>
+                    </div>
+                    <div class="modal fade modal-lg" id="capaianAdd" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <form action="" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="d-grid mb-3"">
+                                    <input type="text" name="id" hidden value="<?= $gu['id'] ?>">
+                                    <input type="text" name="idi" hidden value="<?= $preview['idi'] ?>">
+                                    <label for="content_capaian">Add Capaian Pembelajaran</label>
+                                    <textarea name="content_capaian" id="content_capaian" rows="2"><?= $gu['content_gambaran'] ?>
+                                    </textarea>
+                                </div>  
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" name="addCapaian" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                        </form>
+                        </div>
+                    </div>
+
+                    <!-- Prasyarat dan Pengetahuan Awal (Prior Knowledge) -->
+                    <div class="row mt-4">
+                        <div class="col-11">
+                            <h6>Prasyarat dan Pengetahuan Awal (Prior Knowledge)</h6>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#prasyaratAdd" name="addGambaran" class="btn btn-sm btn-success text-white me-3" style="font-size: 12px; padding: 3px 10px;"><i class="fa-solid fa-plus" style="color: #fff;"></i> Add</button>
+                        </div>
+                    </div>
+                    <div class=" px-3 mt-2">
+                        <div class="row align-items-center mb-2 border border-black rounded-3">
+                            <div class="col-10">
+                                <p class="mb-0">lorem20 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae consequatur, non beatae laudantium fugit pariatur alias fugiat adipisci delectus, in deleniti doloremque minima mollitia sequi, neque ducimus illo quasi voluptatibus.</p>
+                            </div>
+                            <div class="col d-flex gap-1 justify-content-end">
+                                <a href="p" data-bs-toggle="modal" data-bs-target="#prasyaratEdit" class="btn btn-sm nabil-btn text-white" style="font-size: 12px;"><i class="fa-solid fa-pen" style="color: #fff;"></i> Edit</a>
+                                <a href="e" class="btn btn-sm nabil-btn text-white" style="font-size: 12px;"><i class="fa-solid fa-trash" style="color: #fff;"></i> Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade modal-lg" id="prasyaratEdit" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <form action="" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="d-grid mb-3"">
+                                    <input type="text" name="id" hidden value="<?= $gu['id'] ?>">
+                                    <input type="text" name="idi" hidden value="<?= $preview['idi'] ?>">
+                                    <label for="content_prasyarat">Edit Prasyarat</label>
+                                    <textarea name="content_prasyarat" id="content_prasyarat" rows="2"><?= $gu['content_gambaran'] ?>
+                                    </textarea>
+                                </div>  
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" name="editPrasyarat" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                        </form>
+                        </div>
+                    </div>
+                    <div class="modal fade modal-lg" id="prasyaratAdd" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <form action="" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="d-grid mb-3"">
+                                    <input type="text" name="id" hidden value="<?= $gu['id'] ?>">
+                                    <input type="text" name="idi" hidden value="<?= $preview['idi'] ?>">
+                                    <label for="content_prasyarat">Add Prasyarat</label>
+                                    <textarea name="content_prasyarat" id="content_prasyarat" rows="2"><?= $gu['content_gambaran'] ?>
+                                    </textarea>
+                                </div>  
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" name="addPrasyarat" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                        </form>
+                        </div>
+                    </div>
+
+                    <!-- Unit-Unit Pembelajaran secara Spesifik -->
+                    <div class="row mt-4">
+                        <div class="col-11">
+                            <h6>Unit-Unit Pembelajaran secara Spesifik</h6>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#unitAdd" name="addGambaran" class="btn btn-sm btn-success text-white me-3" style="font-size: 12px; padding: 3px 10px;"><i class="fa-solid fa-plus" style="color: #fff;"></i> Add</button>
+                        </div>
+                    </div>
+                    <div class="px-3 mt-2">
+                        <div class="row align-items-center mb-2 border border-black rounded-3">
+                            <div class="col">
+                                <table class="table">
+                                    <tr class="text-center">
+                                        <th style="width: 17%;">Kemampuan Akhir yang diharapkan</th>
+                                        <th style="width: 13%;">Indikator</th>
+                                        <th style="width: 15%;">Bahan Kajian</th>
+                                        <th style="width: 15%;">Metode Pembelajaran</th>
+                                        <th style="width: 10%;">Waktu</th>
+                                        <th style="width: 10%;">Metode Penilaian</th>
+                                        <th style="width: 15%;">Bahan Ajar</th>
+                                        <th></th>
+                                    </tr>
+                                    <tr>
+                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos nemo repellat quas nostrum consequatur pariatur.</td>
+                                        <td>Lorem ipsum dolor sit amet.</td>
+                                        <td>Lorem ipsum dolor sit amet.</td>
+                                        <td>Lorem ipsum dolor sit amet.</td>
+                                        <td>Lorem ipsum dolor sit amet.</td>
+                                        <td>Lorem ipsum dolor sit amet.</td>
+                                        <td>Lorem ipsum dolor sit amet.</td>
+                                        <td>
+                                            <a href="p" data-bs-toggle="modal" data-bs-target="#unitEdit" class="btn btn-sm" style="font-size: 12px;"><i class="fa-solid fa-pen" style="color: #3468C0;"></i></a>
+                                            <a href="e" class="btn btn-sm" style="font-size: 12px;"><i class="fa-solid fa-trash" style="color: #3468C0;"></i></a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade modal-lg" id="unitEdit" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <form action="" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Unit Pembelajaran</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" name="id" hidden value="<?= $up['id'] ?>">
+                                <input type="text" name="idi" hidden value="<?= $preview['idi'] ?>">
+                                <div class="col d-grid">
+                                    <label for="unit_kemampuan">Kemampuan Akhir yang Diharapakan</label>
+                                    <textarea name="unit_kemampuan" id="unit_kemampuan" rows="2"><?= $up['unit_kemampuan'] ?>
+                                    </textarea>
+                                </div>
+                                <div class="col d-grid">
+                                    <label for="unit_indikator">Indikator</label>
+                                    <textarea name="unit_indikator" id="unit_indikator" rows="2"><?= $up['unit_indikator'] ?>
+                                    </textarea>
+                                </div>
+                                <div class="col">
+                                    <label for="bahan_kajian">Bahan Kajian</label>
+                                    <textarea class="w-100" name="bahan_kajian" id="bahan_kajian" rows="2"><?= $up['bahan_kajian'] ?>
+                                    </textarea>
+                                </div>
+                                <div class="col">
+                                    <label for="metode_pembelajaran">Metode Pembelajaran</label>
+                                    <textarea class="w-100" name="metode_pembelajaran" id="metode_pembelajaran" rows="2"><?= $up['metode_pembelajaran'] ?>
+                                    </textarea>
+                                </div>
+                                <div class="col">
+                                    <label for="metode_penilaian">Metode Penilaian</label>
+                                    <textarea class="w-100" name="metode_penilaian" id="metode_penilaian" rows="2"><?= $up['metode_penilaian'] ?>
+                                    </textarea>
+                                </div>
+                                <div class="col">
+                                    <label for="bahan_ajar">Bahan Ajar</label>
+                                    <textarea class="w-100" name="bahan_ajar" id="bahan_ajar" rows="2"><?= $up['bahan_ajar'] ?>
+                                    </textarea>
+                                </div>
+                                <div class="col d-grid">
+                                    <label for="unit_waktu">Waktu</label>
+                                    <input class="w-100" type="text" name="unit_waktu" id="unit_waktu" value="<?= $up['unit_waktu'] ?>">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" name="editUnit" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                        </form>
+                        </div>
+                    </div>
+                    <div class="modal fade modal-lg" id="unitAdd" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <form action="" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Unit Pembelajaran</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" name="id" hidden value="<?= $up['id'] ?>">
+                                <input type="text" name="idi" hidden value="<?= $preview['idi'] ?>">
+                                <div class="col d-grid">
+                                    <label for="unit_kemampuan">Kemampuan Akhir yang Diharapakan</label>
+                                    <textarea name="unit_kemampuan" id="unit_kemampuan" rows="2"><?= $up['unit_kemampuan'] ?>
+                                    </textarea>
+                                </div>
+                                <div class="col d-grid">
+                                    <label for="unit_indikator">Indikator</label>
+                                    <textarea name="unit_indikator" id="unit_indikator" rows="2"><?= $up['unit_indikator'] ?>
+                                    </textarea>
+                                </div>
+                                <div class="col">
+                                    <label for="bahan_kajian">Bahan Kajian</label>
+                                    <textarea class="w-100" name="bahan_kajian" id="bahan_kajian" rows="2"><?= $up['bahan_kajian'] ?>
+                                    </textarea>
+                                </div>
+                                <div class="col">
+                                    <label for="metode_pembelajaran">Metode Pembelajaran</label>
+                                    <textarea class="w-100" name="metode_pembelajaran" id="metode_pembelajaran" rows="2"><?= $up['metode_pembelajaran'] ?>
+                                    </textarea>
+                                </div>
+                                <div class="col">
+                                    <label for="metode_penilaian">Metode Penilaian</label>
+                                    <textarea class="w-100" name="metode_penilaian" id="metode_penilaian" rows="2"><?= $up['metode_penilaian'] ?>
+                                    </textarea>
+                                </div>
+                                <div class="col">
+                                    <label for="bahan_ajar">Bahan Ajar</label>
+                                    <textarea class="w-100" name="bahan_ajar" id="bahan_ajar" rows="2"><?= $up['bahan_ajar'] ?>
+                                    </textarea>
+                                </div>
+                                <div class="col d-grid">
+                                    <label for="unit_waktu">Waktu</label>
+                                    <input class="w-100" type="text" name="unit_waktu" id="unit_waktu" value="<?= $up['unit_waktu'] ?>">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" name="addUnit" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                        </form>
+                        </div>
+                    </div>
+
+                    <!-- Tugas/Aktivitas dan Penilaian -->
+                    <div class="row mt-4">
+                        <div class="col-11">
+                            <h6>Tugas/Aktivitas dan Penilaian</h6>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#tugasAdd" name="addGambaran" class="btn btn-sm btn-success text-white me-3" style="font-size: 12px; padding: 3px 10px;"><i class="fa-solid fa-plus" style="color: #fff;"></i> Add</button>
+                        </div>
+                    </div>
+                    <div class="px-3 mt-2">
+                        <div class="row align-items-center mb-2 border border-black rounded-3">
+                            <div class="col">
+                                <table class="table">
+                                    <tr class="text-center">
+                                        <th style="width: 15%;">Tugas/Aktivitas</th>
+                                        <th style="width: 20%;">Kemampuan akhir yang diharapkan atau dievaluasi</th>
+                                        <th style="width: 12%;">Waktu</th>
+                                        <th style="width: 13%;">Bobot</th>
+                                        <th style="width: 20%;">Kriteria Penilaian</th>
+                                        <th style="width: 15%;">Indikator Penilaian</th>
+                                        <th></th>
+                                    </tr>
+                                    <tr>
+                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos nemo repellat quas nostrum consequatur pariatur.</td>
+                                        <td>Lorem ipsum dolor sit amet.</td>
+                                        <td>Lorem ipsum dolor sit amet.</td>
+                                        <td>Lorem ipsum dolor sit amet.</td>
+                                        <td>Lorem ipsum dolor sit amet.</td>
+                                        <td>Lorem ipsum dolor sit amet.</td>
+                                        <td>
+                                            <a href="p" data-bs-toggle="modal" data-bs-target="#tugasEdit" class="btn btn-sm" style="font-size: 12px;"><i class="fa-solid fa-pen" style="color: #3468C0;"></i></a>
+                                            <a href="e" class="btn btn-sm" style="font-size: 12px;"><i class="fa-solid fa-trash" style="color: #3468C0;"></i></a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade modal-lg" id="tugasEdit" tabindex="-1"  aria-hidden="true">
+                        <div class="modal-dialog">
+                        <form action="" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Tugas & Penilaian</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row p-0 align-items-start mb-3">
+                                    <input type="text" name="id" hidden value="<?= $tp['id'] ?>">
+                                    <input type="text" name="idi" hidden value="<?= $preview['idi'] ?>">
+                                    <div class="col">
+                                        <label for="tugas">Tugas/Aktivitas</label>
+                                        <input class="w-100" type="text" name="tugas" id="tugas" value="<?= $tp['tugas']?>">
+                                    </div>
+                                    <div class="col d-grid">
+                                        <label for="tugas_waktu">Waktu</label>
+                                        <input class="w-100" type="text" name="tugas_waktu" id="tugas_waktu" value="<?= $tp['tugas_waktu']?>">
+                                    </div>
+                                    <div class="col">
+                                        <label for="bobot">Bobot</label>
+                                        <input class="w-100" type="text" name="bobot" id="bobot" value="<?= $tp['bobot']?>">
+                                    </div>
+                                </div>
+                                <div class="col d-grid mb-1">
+                                    <label for="tugas_kemampuan">Kemampuan Akhir yang Diharapakan atau dievaluasi</label>
+                                    <textarea name="tugas_kemampuan" id="tugas_kemampuan" rows="2"><?= $tp['tugas_kemampuan']?>
+                                    </textarea>
+                                </div>
+                                <div class="col mb-1">
+                                    <label for="kriteria_penilaian">Kriteria Penilaian</label>
+                                    <textarea class="w-100" name="kriteria_penilaian" id="kriteria_penilaian" rows="2"><?= $tp['kriteria_penilaian']?>
+                                    </textarea>
+                                </div>
+                                <div class="col">
+                                    <label for="tugas_indikator">Indikator Penilaian</label>
+                                    <textarea class="w-100" name="tugas_indikator" id="tugas_indikator" rows="2"><?= $tp['tugas_indikator']?>
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" name="editTugas" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                        </form>
+                        </div>
+                    </div>
+                    <div class="modal fade modal-lg" id="tugasAdd" tabindex="-1"  aria-hidden="true">
+                        <div class="modal-dialog">
+                        <form action="" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Tugas & Penilaian</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row p-0 align-items-start mb-3">
+                                    <input type="text" name="id" hidden value="<?= $tp['id'] ?>">
+                                    <input type="text" name="idi" hidden value="<?= $preview['idi'] ?>">
+                                    <div class="col">
+                                        <label for="tugas">Tugas/Aktivitas</label>
+                                        <input class="w-100" type="text" name="tugas" id="tugas" value="<?= $tp['tugas']?>">
+                                    </div>
+                                    <div class="col d-grid">
+                                        <label for="tugas_waktu">Waktu</label>
+                                        <input class="w-100" type="text" name="tugas_waktu" id="tugas_waktu" value="<?= $tp['tugas_waktu']?>">
+                                    </div>
+                                    <div class="col">
+                                        <label for="bobot">Bobot</label>
+                                        <input class="w-100" type="text" name="bobot" id="bobot" value="<?= $tp['bobot']?>">
+                                    </div>
+                                </div>
+                                <div class="col d-grid mb-1">
+                                    <label for="tugas_kemampuan">Kemampuan Akhir yang Diharapakan atau dievaluasi</label>
+                                    <textarea name="tugas_kemampuan" id="tugas_kemampuan" rows="2"><?= $tp['tugas_kemampuan']?>
+                                    </textarea>
+                                </div>
+                                <div class="col mb-1">
+                                    <label for="kriteria_penilaian">Kriteria Penilaian</label>
+                                    <textarea class="w-100" name="kriteria_penilaian" id="kriteria_penilaian" rows="2"><?= $tp['kriteria_penilaian']?>
+                                    </textarea>
+                                </div>
+                                <div class="col">
+                                    <label for="tugas_indikator">Indikator Penilaian</label>
+                                    <textarea class="w-100" name="tugas_indikator" id="tugas_indikator" rows="2"><?= $tp['tugas_indikator']?>
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" name="addTugas" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                        </form>
+                        </div>
+                    </div>
+
+                    <!-- Referensi -->
+                    <div class="row mt-4">
+                        <div class="col-11">
+                            <h6>Referensi</h6>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#referensiAdd" name="addGambaran" class="btn btn-sm btn-success text-white me-3" style="font-size: 12px; padding: 3px 10px;"><i class="fa-solid fa-plus" style="color: #fff;"></i> Add</button>
+                        </div>
+                    </div>
+                    <div class=" px-3 mt-2">
+                        <div class="row align-items-center mb-2 border border-black rounded-3">
+                            <div class="col-10">
+                                <p class="mb-0">lorem20 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae consequatur, non beatae laudantium fugit pariatur alias fugiat adipisci delectus, in deleniti doloremque minima mollitia sequi, neque ducimus illo quasi voluptatibus.</p>
+                            </div>
+                            <div class="col d-flex gap-1 justify-content-end">
+                                <a href="p" data-bs-toggle="modal" data-bs-target="#referensiEdit" class="btn btn-sm nabil-btn text-white" style="font-size: 12px;"><i class="fa-solid fa-pen" style="color: #fff;"></i> Edit</a>
+                                <a href="e" class="btn btn-sm nabil-btn text-white" style="font-size: 12px;"><i class="fa-solid fa-trash" style="color: #fff;"></i> Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade modal-lg" id="referensiEdit" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <form action="" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="d-grid mb-3"">
+                                    <input type="text" name="id" hidden value="<?= $gu['id'] ?>">
+                                    <input type="text" name="idi" hidden value="<?= $preview['idi'] ?>">
+                                    <label for="content_referensi">Edit Referensi</label>
+                                    <textarea name="content_referensi" id="content_referensi" rows="2"><?= $gu['content_gambaran'] ?>
+                                    </textarea>
+                                </div>  
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" name="editreferensi" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                        </form>
+                        </div>
+                    </div>
+                    <div class="modal fade modal-lg" id="referensiAdd" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <form action="" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="d-grid mb-3"">
+                                    <input type="text" name="id" hidden value="<?= $gu['id'] ?>">
+                                    <input type="text" name="idi" hidden value="<?= $preview['idi'] ?>">
+                                    <label for="content_referensi">Add Referensi</label>
+                                    <textarea name="content_referensi" id="content_referensi" rows="2"><?= $gu['content_gambaran'] ?>
+                                    </textarea>
+                                </div>  
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" name="addreferensi" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                        </form>
+                        </div>
+                    </div>
+
+                    <!-- Rencana Pelaksanaan Pembelajaran -->
+                    <div class="row mt-4">
+                        <div class="col-11">
+                            <h6>Rencana Pelaksanaan Pembelajaran</h6>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#rencanaAdd" name="addGambaran" class="btn btn-sm btn-success text-white me-3" style="font-size: 12px; padding: 3px 10px;"><i class="fa-solid fa-plus" style="color: #fff;"></i> Add</button>
+                        </div>
+                    </div>
+                    <div class="px-3 mt-2">
+                        <div class="row align-items-center mb-2 border border-black rounded-3">
+                            <div class="col">
+                                <table class="table">
+                                    <tr class="text-center">
+                                        <th style="width: 10%;">Minggu/pertemuan</th>
+                                        <th style="width: 18%;">Kemampuan Akhir yang Diharapkan</th>
+                                        <th style="width: 15%;">Indikator</th>
+                                        <th style="width: 14%;">Topik & Sub Topik</th>
+                                        <th style="width: 13%;">Aktivitas dan Strategi Pembelajaran</th>
+                                        <th style="width: 10%;">Waktu</th>
+                                        <th style="width: 15%;">Penilaian</th>
+                                        <th></th>
+                                    </tr>
+                                    <tr>
+                                        <td>Lorem, </td>
+                                        <td>Lorem ipsum dolor sit amet.</td>
+                                        <td>Lorem ipsum dolor sit amet.</td>
+                                        <td>Lorem ipsum dolor sit amet.</td>
+                                        <td>Lorem ipsum dolor sit amet.</td>
+                                        <td>Lorem ipsum dolor sit amet.</td>
+                                        <td>Lorem ipsum dolor sit amet.</td>
+                                        <td>
+                                            <a href="p" data-bs-toggle="modal" data-bs-target="#rencanaEdit" class="btn btn-sm" style="font-size: 12px;"><i class="fa-solid fa-pen" style="color: #3468C0;"></i></a>
+                                            <a href="e" class="btn btn-sm" style="font-size: 12px;"><i class="fa-solid fa-trash" style="color: #3468C0;"></i></a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade modal-lg" id="rencanaEdit" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <form action=" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Rencana Pemebelajaran</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row w-100 m-auto column-gap-2">
+                                    <div class="col-1 p-0 ">
+                                        <input type="text" name="id" hidden value="<?= $rp['id'] ?>">
+                                        <input type="text" name="idi" hidden value="<?= $preview['idi'] ?>">    
+                                        <label for="minggu">Minggu</label>
+                                        <select class="w-100" name="minggu" id="minggu">
+                                            <option selected hidden value="<?= $rp['minggu'] ?>"><?= $rp['minggu'] ?></option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-2 p-0 d-grid">
+                                        <label for="rencana_waktu">Waktu</label>
+                                        <input class="w-100" type="text" name="rencana_waktu" id="rencana_waktu" value="<?= $rp['rencana_waktu'] ?>">
+                                    </div>
+                                    <div class="col p-0 d-grid">
+                                        <label for="penilaian">Penilaian</label>
+                                        <input class="w-100" type="text" name="penilaian" id="penilaian" value="<?= $rp['penilaian'] ?>">
+                                    </div>    
+                                </div>
+                                <div class="col p-0 d-grid mb-2">
+                                    <label for="aktivitas">Aktivitas dan Strategi Pembelajaran</label>
+                                    <textarea cols="30" rows="3" name="aktivitas" id="aktivitas"><?= $rp['aktivitas'] ?></textarea>
+                                </div>
+                                <div class="col p-0 d-grid mb-2">
+                                    <label for="rencana_kemampuan">Kemampuan Akhir yang Diharapkan</label>
+                                    <textarea cols="30" rows="3" name="rencana_kemampuan" id="rencana_kemampuan"><?= $rp['rencana_kemampuan'] ?></textarea>
+                                </div>    
+                                <div class="col p-0 d-grid mb-2">
+                                    <label for="rencana_indikator">Indikator</label>
+                                    <textarea cols="30" rows="3" name="rencana_indikator" id="rencana_indikator"><?= $rp['rencana_indikator'] ?></textarea>
+                                </div>    
+                                <div class="col p-0 d-grid mb-2">
+                                    <label for="topik">Topik & Sub Topik</label>
+                                    <textarea cols="30" rows="3" name="topik" id="topik"><?= $rp['topik'] ?></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" name="editRencana" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                        </form>
+                        </div>
+                    </div>
+                    <div class="modal fade modal-lg" id="rencanaAdd" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <form action=" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Rencana Pemebelajaran</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row w-100 m-auto column-gap-2">
+                                    <div class="col-1 p-0 ">
+                                        <input type="text" name="id" hidden value="<?= $rp['id'] ?>">
+                                        <input type="text" name="idi" hidden value="<?= $preview['idi'] ?>">    
+                                        <label for="minggu">Minggu</label>
+                                        <select class="w-100" name="minggu" id="minggu">
+                                            <option selected hidden value="<?= $rp['minggu'] ?>"><?= $rp['minggu'] ?></option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-2 p-0 d-grid">
+                                        <label for="rencana_waktu">Waktu</label>
+                                        <input class="w-100" type="text" name="rencana_waktu" id="rencana_waktu" value="<?= $rp['rencana_waktu'] ?>">
+                                    </div>
+                                    <div class="col p-0 d-grid">
+                                        <label for="penilaian">Penilaian</label>
+                                        <input class="w-100" type="text" name="penilaian" id="penilaian" value="<?= $rp['penilaian'] ?>">
+                                    </div>    
+                                </div>
+                                <div class="col p-0 d-grid mb-2">
+                                    <label for="aktivitas">Aktivitas dan Strategi Pembelajaran</label>
+                                    <textarea cols="30" rows="3" name="aktivitas" id="aktivitas"><?= $rp['aktivitas'] ?></textarea>
+                                </div>
+                                <div class="col p-0 d-grid mb-2">
+                                    <label for="rencana_kemampuan">Kemampuan Akhir yang Diharapkan</label>
+                                    <textarea cols="30" rows="3" name="rencana_kemampuan" id="rencana_kemampuan"><?= $rp['rencana_kemampuan'] ?></textarea>
+                                </div>    
+                                <div class="col p-0 d-grid mb-2">
+                                    <label for="rencana_indikator">Indikator</label>
+                                    <textarea cols="30" rows="3" name="rencana_indikator" id="rencana_indikator"><?= $rp['rencana_indikator'] ?></textarea>
+                                </div>    
+                                <div class="col p-0 d-grid mb-2">
+                                    <label for="topik">Topik & Sub Topik</label>
+                                    <textarea cols="30" rows="3" name="topik" id="topik"><?= $rp['topik'] ?></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" name="addRencana" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                        </form>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
